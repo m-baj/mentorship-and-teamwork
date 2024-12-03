@@ -37,6 +37,6 @@ def parse_skills(file_handle: TextIO, skills_count: int) -> List[Skill]:
     return skills
 
 
-contributors, projects = parse_input_file("data/e_exceptional_skills.in")
+contributors, projects = parse_input_file("../data/e_exceptional_skills.in")
 print(contributors)
 print(projects)
