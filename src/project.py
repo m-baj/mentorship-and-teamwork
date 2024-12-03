@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from skill import Skill
+from typing import List
 
 @dataclass
 class Project:
@@ -7,6 +8,6 @@ class Project:
     duration: int
     score: int
     best_before: int
-    required_skills: list[Skill]
+    required_skills: List[Skill]
 
 

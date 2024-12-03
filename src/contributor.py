@@ -5,4 +5,4 @@ from skill import Skill
 @dataclass
 class Contributor:
     name: str
-    skills: list[Skill]
+    skills: List[Skill]
