@@ -1,8 +1,11 @@
 from dataclasses import dataclass
 from typing import List
-from skill import Skill
+
+from models.skill import Skill
 
 @dataclass
 class Contributor:
+    id: int
     name: str
     skills: List[Skill]
+    busy_until: int = 0

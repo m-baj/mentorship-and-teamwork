@@ -4,4 +4,3 @@ from dataclasses import dataclass
 class Skill:
     name: str
     level: int
-    
