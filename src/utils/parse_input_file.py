@@ -26,14 +26,14 @@ def parse_projects(file_handle: TextIO, projects_count: int) -> List[Project]:
     for i in range(projects_count):
         name, days, score, best_before, roles_count = file_handle.readline().split()
         required_skills = parse_skills(file_handle, int(roles_count))
-        projects.append(Project(i, name, days, score, best_before, required_skills))
+        projects.append(Project(i, name, int(days), int(score), int(best_before), required_skills))
     return projects
 
 
 def parse_skills(file_handle: TextIO, skills_count: int) -> List[Skill]:
-    skills = []
+    skills = {}
     for _ in range(skills_count):
         skill_name, level = file_handle.readline().split()
-        skills.append(Skill(skill_name, level))
+        skills[skill_name] = int(level)
     return skills
     

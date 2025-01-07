@@ -11,11 +11,8 @@ from models.assignment import Assignment
 class Solver(ABC):
     contributors: List[Contributor]
     projects: List[Project]
-    assignments: List[Assignment] = field(init=False)
-
-    def __post_init__(self):
-        self.assignments = [Assignment(project) for project in self.projects]
+    # assigned_projects: List[AssignedProject] = field(default_factory=list)
 
     @abstractmethod
-    def solve(self) -> List[Assignment]:
+    def solve(self) -> None:
         pass
