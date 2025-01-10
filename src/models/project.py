@@ -23,6 +23,9 @@ class Project:
 
     def __post_init__(self):
         self.assignments = {skill: None for skill in self.required_skills.keys()}
+    
+    def __hash__(self):
+        return hash(self.name)
 
 
 # @dataclass

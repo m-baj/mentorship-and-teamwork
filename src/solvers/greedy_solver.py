@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Tuple
 from copy import deepcopy
 import random
 
@@ -18,19 +18,18 @@ class GreedySolver(Solver):
         for _ in range(max_iter):
             assigned_projects = []
             remaining_projects = deepcopy(self.projects)
-            contributors = deepcopy(self.contributors)
-            for i in range(len(self.projects)):
-                project = remaining_projects[i]
+            contributors = set(deepcopy(self.contributors))
+            for project in remaining_projects:
                 busy_untils = []
                 is_valid = True
-                project_contributors = deepcopy(contributors)
+                team = set()
                 for skill, level in project.required_skills.items():
-                    contributor = self._choose_contributor(skill, level, project_contributors)
+                    contributor = self._choose_contributor(skill, level, contributors, team)
                     if contributor is not None:
-                        project.assignments[skill] = contributor
+                        project.assignments[skill] = contributor 
                         busy_untils.append(contributor.busy_until)
                         contributor.busy_until += project.duration
-                        project_contributors.remove(contributor)
+                        team.add(contributor)
                     else:
                         is_valid = False
                         break
@@ -47,20 +46,20 @@ class GreedySolver(Solver):
             
             self._swap_two_random_projects()
                    
-    def _choose_contributor(self, skill: str, level: int, contributors) -> Contributor:
+    def _choose_contributor(self, skill: str, level: int, contributors, team) -> Tuple[Contributor, bool]:
         possible_contributors = [
-            contributor for contributor in contributors
+            contributor for contributor in contributors - team
                 if contributor.has_required_skill(skill, level)
         ]
         if not possible_contributors:
             return None
-        return min(possible_contributors, key=lambda c: c.busy_until)
+        best = min(possible_contributors, key=lambda c: c.busy_until)
+        if best.skills[skill] <= level:
+            best.skills[skill] += 1
+        return best
     
     def _eval_project(self, project: Project) -> int:
-        return max(0, min(
-            project.score, project.score - (project.evaluation_data.ends - project.best_before))
-        )
-    
+        return max(0, project.score - max(0, project.evaluation_data.ends - project.best_before))
 
     def _swap_two_random_projects(self):
         first = random.randint(0, len(self.projects) - 1)
