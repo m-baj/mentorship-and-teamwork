@@ -23,6 +23,7 @@ class NeighborSolver(Solver):
     skill_to_contributors: Dict[str, List[Contributor]] = field(default_factory=dict)
 
     def solve(self, temperature: int, cooling_rate: float) -> Result:
+        # sprawdzic z sortowaniem i z losowym
         self.projects.sort(key=lambda p: p.best_before)
 
         self.skill_to_contributors = self._map_skills_to_contributors()
@@ -36,6 +37,8 @@ class NeighborSolver(Solver):
         self.best_result = Result(score = self._evaluate_solution(current_assignments),
                              assignments = current_assignments)
 
+        # mozna dopisac sprawdzanie czy mozna znalezc poprawne rozwiazanie po n iteracjach
+        # mozna dodać tabu
         while temperature > 1:
 
             for contributor in self.contributors:
@@ -63,6 +66,7 @@ class NeighborSolver(Solver):
                 skill_map[skill].append(contributor)
         return skill_map
 
+    # wystartowac ze stanu ktory bedzie poprawny
     def _assign_project(self, project: Project) -> Assignment:
         assigned_contributors = []
         for skill, level in project.required_skills.items():
@@ -96,6 +100,9 @@ class NeighborSolver(Solver):
             contributor.busy_until = 0
         return total_score
 
+    # sprobowac dorzucic pracownika z nizszym poziomem do tego z wyzszym
+    # randomowy z wiekszym prawdopodobienstwem
+    # prawdopodobienstwo zalezne od levelu
     def _generate_neighbor(self, assignments: List[Assignment]) -> List[Assignment]:
         neighbor = assignments[:]
 
