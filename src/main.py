@@ -6,13 +6,14 @@ from utils.parse_output_file import parse_output_file
 from solvers.my_solver import NeighborSolver
 
 print(os.getcwd())
+file_name = "d_dense_schedule"
 
-contributors, projects = parse_input_file("/home/maksbaj/studia/sem5/pop/pop24z/data/a_an_example.in")
+contributors, projects = parse_input_file(f"/home/maksbaj/studia/sem5/pop/pop24z/data/{file_name}.in")
 # contributors, projects = parse_input_file("/home/adam/IdeaProjects/sem_5/pop24z/data/b_better_start_small.in")
 
 solver = GreedySolver(contributors, projects)
-solver.solve(100)
-parse_output_file(solver.best_result, "../out/a_an_example.out", contributors)
+solver.solve(1000)
+parse_output_file(solver.best_result, f"../out/{file_name}.out", contributors)
 # solver = NeighborSolver(contributors, projects)
 # solver.solve(1000, 0.99)
 print(solver.best_result.score)
