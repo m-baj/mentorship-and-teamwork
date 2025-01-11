@@ -16,4 +16,8 @@ solver.solve(1000)
 parse_output_file(solver.best_result, f"../out/{file_name}.out", contributors)
 # solver = NeighborSolver(contributors, projects)
 # solver.solve(1000, 0.99)
+
+# biblioteka DEAP do ewolucyjnych
+solver = NeighborSolver(contributors, projects)
+solver.solve(1000, 0.99999)
 print(solver.best_result.score)
