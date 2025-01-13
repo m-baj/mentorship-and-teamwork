@@ -10,6 +10,7 @@ print(os.getcwd())
 
 # contributors, projects = parse_input_file("/home/maksbaj/studia/sem5/pop/pop24z/data/a_an_example.in")
 contributors, projects = parse_input_file("../data/b_better_start_small.in")
+# contributors, projects = parse_input_file("../data/c_collaboration.in")
 
 # solver = GreedySolver(contributors, projects)
 # solver.solve(100)
@@ -19,6 +20,6 @@ contributors, projects = parse_input_file("../data/b_better_start_small.in")
 
 # biblioteka DEAP do ewolucyjnych
 solver = NeighborSolver(contributors, projects)
-solver.solve(100, 0.999, False, False, True)
+solver.solve(100, 0.9999, False, False, False)
 parse_second_output_file(solver.last_result, "../out/b_better_start_small.out")
 print(solver.best_result.score, solver.last_result.score)

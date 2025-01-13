@@ -81,7 +81,6 @@ class NeighborSolver(Solver):
             i_from_last_improvement += 1
             temperature *= cooling_rate
         self.last_evaluation()
-        print("abc")
 
 
     def _map_skills_to_contributors(self) -> Dict[str, List[Contributor]]:
@@ -96,12 +95,14 @@ class NeighborSolver(Solver):
     # wystartowac ze stanu ktory bedzie poprawny
     def _assign_project(self, project: Project, correct_start: bool, use_weighted_selection: bool) -> Assignment:
         assigned_contributors = []
+        team = []
         for skill, level in project.required_skills:
             if correct_start:
                 suitable_contributors = [c for c in self.skill_to_contributors.get(skill, [])
-                                         if c.has_required_skill(skill, level)]
+                                         if c.has_required_skill(skill, level) and c not in team]
             else:
-                suitable_contributors = [c for c in self.skill_to_contributors.get(skill, [])]
+                suitable_contributors = [c for c in self.skill_to_contributors.get(skill, [])
+                                         if c not in team]
             if not suitable_contributors:
                 return None
 
@@ -125,7 +126,7 @@ class NeighborSolver(Solver):
             else:
                 # Losowy wybór pracownika bez wag
                 chosen_contributor = random.choice(suitable_contributors)
-
+            team.append(chosen_contributor)
             assigned_contributors.append(chosen_contributor)
             chosen_contributor.busy_until = project.evaluation_data.begins + project.duration
 
