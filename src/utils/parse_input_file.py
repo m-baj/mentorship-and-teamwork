@@ -16,7 +16,7 @@ def parse_contributors(file_handle: TextIO, contributors_count: int) -> List[Con
     contributors = []
     for i in range(contributors_count):
         name, skills_count = file_handle.readline().split()
-        skills = parse_skills(file_handle, int(skills_count))
+        skills = dict(parse_skills(file_handle, int(skills_count)))
         contributors.append(Contributor(i, name, skills))
     return contributors 
 
@@ -30,10 +30,9 @@ def parse_projects(file_handle: TextIO, projects_count: int) -> List[Project]:
     return projects
 
 
-def parse_skills(file_handle: TextIO, skills_count: int) -> List[Skill]:
-    skills = {}
+def parse_skills(file_handle: TextIO, skills_count: int) -> List[Tuple[str, int]]:
+    skills = []
     for _ in range(skills_count):
         skill_name, level = file_handle.readline().split()
-        skills[skill_name] = int(level)
+        skills.append((skill_name, int(level)))
     return skills
-    

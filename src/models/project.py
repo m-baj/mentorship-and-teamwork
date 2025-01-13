@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 
 from models.skill import Skill
 from models.contributor import Contributor
@@ -17,12 +17,10 @@ class Project:
     duration: int
     score: int
     best_before: int
-    required_skills: Dict[str, int] = field(default_factory=dict)
+    required_skills: List[Tuple[str, int]] = field(default_factory=dict)
     assignments: Dict[Skill, Optional[Contributor]] = field(default_factory=dict)
     evaluation_data: Evaluation = field(default_factory=Evaluation)
 
-    def __post_init__(self):
-        self.assignments = {skill: None for skill in self.required_skills.keys()}
     
     def __hash__(self):
         return hash(self.name)
