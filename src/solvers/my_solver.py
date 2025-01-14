@@ -23,16 +23,19 @@ class NeighborSolver(Solver):
     best_result: Result = field(default_factory=Result)
     last_result: Result = field(default_factory=Result)
     skill_to_contributors: Dict[str, List[Contributor]] = field(default_factory=dict)
+    max_iterations: int = 100000
 
-    def solve(self, temperature: int, cooling_rate: float,
+    history: List[Dict[str, float]] = field(default_factory=list)
+
+    def solve(self, temperature: int, cooling_rate: float, change_probability: float,
               correct_start: bool = True, shuffle: bool = False,
-              use_weighted_selection: bool = True) -> Result:
-        n = -180000000
+              use_weighted_selection: bool = True, weight_1: float = 10000, weight_2: float = 100) -> Result:
+        n = -180000000 # tylko do printów
+
+        tabu_list = []
+        tabu_max_size = 300
+
         # sprawdzic z sortowaniem i z losowym
-
-        tabu_list = []  # Lista tabu
-        tabu_max_size = 300  # Maksymalny rozmiar listy tabu
-
         if shuffle:
             random.shuffle(self.projects)
         else:
@@ -42,25 +45,37 @@ class NeighborSolver(Solver):
 
         current_assignments = []
         for project in self.projects:
-            assignment = self._assign_project(project, correct_start, use_weighted_selection)
+            assignment = self._assign_project(project, correct_start, use_weighted_selection, weight_1, weight_2)
             if assignment:
                 current_assignments.append(assignment)
 
         self.best_result = Result(score = self._evaluate_solution(current_assignments),
                              assignments = current_assignments)
 
+        i_from_last_improvement = 0
+        iterations = 0
+
+        self.last_evaluation()
+        self.history.append({
+            'iteration': iterations,
+            'iteration_from_last_improvement': i_from_last_improvement,
+            'temperature': temperature,
+            'best_score': self.best_result.score,
+            'last_score': self.last_result.score
+        })
+
 
         # mozna dopisac sprawdzanie czy mozna znalezc poprawne rozwiazanie po n iteracjach
         # mozna dodać tabu
-        i_from_last_improvement = 0
-        while temperature > 1 and i_from_last_improvement < 100000:
+        while temperature > 1 and i_from_last_improvement < self.max_iterations: # 100000 to kilkanaście sekund
+            iterations += 1
             for contributor in self.contributors:
                 if contributor.skill_upgrades:
                     for skill, level in contributor.skill_upgrades.items():
                         contributor.skills[skill] = contributor.skill_upgrades[skill]
                     contributor.skill_upgrades = {}
 
-            neighbor_assignments = self._generate_neighbor(current_assignments)
+            neighbor_assignments = self._generate_neighbor(current_assignments, change_probability, weight_1, weight_2)
             neighbor_hash = self._hash_assignments(neighbor_assignments)
 
             if neighbor_hash in tabu_list:
@@ -80,7 +95,15 @@ class NeighborSolver(Solver):
                     n = min(n + 10000000, self.best_result.score)
             i_from_last_improvement += 1
             temperature *= cooling_rate
-        self.last_evaluation()
+            self.last_evaluation()
+
+            self.history.append({
+                'iteration': iterations,
+                'iteration_from_last_improvement': i_from_last_improvement,
+                'temperature': temperature,
+                'best_score': self.best_result.score,
+                'last_score': self.last_result.score
+            })
 
 
     def _map_skills_to_contributors(self) -> Dict[str, List[Contributor]]:
@@ -93,7 +116,8 @@ class NeighborSolver(Solver):
         return skill_map
 
     # wystartowac ze stanu ktory bedzie poprawny
-    def _assign_project(self, project: Project, correct_start: bool, use_weighted_selection: bool) -> Assignment:
+    def _assign_project(self, project: Project, correct_start: bool, use_weighted_selection: bool
+                        , weight_1: float, weight_2: float) -> Assignment:
         assigned_contributors = []
         team = []
         for skill, level in project.required_skills:
@@ -116,9 +140,9 @@ class NeighborSolver(Solver):
                     weight = math.exp(-((skill_level - level) ** 2) / (2 * sigma ** 2))
                     # Premia dla idealnego poziomu
                     if skill_level == level:
-                        weight *= 100000
+                        weight *= weight_1
                     elif skill_level > level:
-                        weight *= 100
+                        weight *= weight_2
                     weights.append(weight)
 
                 # Wybierz nowego pracownika z odpowiednimi wagami
@@ -156,11 +180,13 @@ class NeighborSolver(Solver):
     # sprobowac dorzucic pracownika z nizszym poziomem do tego z wyzszym
     # randomowy z wiekszym prawdopodobienstwem
     # prawdopodobienstwo zalezne od levelu
-    def _generate_neighbor(self, assignments: List[Assignment]) -> List[Assignment]:
+    def _generate_neighbor(self, assignments: List[Assignment], change_probability: float,
+                           weight_1: float, weight_2: float) -> List[Assignment]:
         neighbor = assignments[:]
 
-        if random.random() < 0.85:
+        if random.random() < change_probability:
             random_assignment = random.choice(neighbor)
+            team = random_assignment.contributors[:]
             weights = []
             for random_idx, c in enumerate(random_assignment.contributors):
                 skill = random_assignment.project.required_skills[random_idx][0]
@@ -173,28 +199,48 @@ class NeighborSolver(Solver):
                 weights.append(weight)
             random_idx = random.choices(range(len(random_assignment.contributors)), weights=weights, k=1)[0]
             if random_assignment.contributors:
-                # random_idx = random.randint(0, len(random_assignment.contributors) - 1)
-                # skills = list(random_assignment.project.required_skills.keys())
-                # skill = skills[random_idx]
                 skill = random_assignment.project.required_skills[random_idx][0]
-                contributors_with_skill = self.skill_to_contributors[skill]
-                if contributors_with_skill:
-                    # Oblicz wagi na podstawie rozkładu Gaussa
-                    required_level = random_assignment.project.required_skills[random_idx][1]
-                    sigma = 0.5  # Mniejsze sigma dla węższego rozkładu
-                    weights = []
+                required_level = random_assignment.project.required_skills[random_idx][1]
 
-                    for c in contributors_with_skill:
-                        skill_level = c.skills.get(skill, 0)
-                        weight = math.exp(-((skill_level - required_level) ** 2) / (2 * sigma ** 2))
-                        # Premia dla idealnego poziomu
-                        if skill_level == required_level:
-                            weight *= 10000
-                        elif skill_level > required_level:
-                            weight *= 10
-                        weights.append(weight)
-                    new_contributor = random.choices(contributors_with_skill, weights=weights, k=1)[0]
-                    random_assignment.contributors[random_idx] = new_contributor
+                potential_mentors = []
+                for con in team:
+                    if c.skills.get(skill, 0) >= required_level:
+                        potential_mentors.append(con)
+
+                mentee_candidates = []
+                if potential_mentors:
+                    mentee_candidates = [
+                        c for c in self.skill_to_contributors.get(skill, [])
+                        if c.skills.get(skill, 0) == required_level - 1
+                           and c not in team
+                    ]
+                if mentee_candidates:
+                    mentee = random.choice(mentee_candidates)
+                    team[random_idx] = mentee
+                    random_assignment.contributors[random_idx] = mentee
+                    # print("Mentoring")
+                else:
+                    available_contributors = [
+                        c for c in self.skill_to_contributors.get(skill, [])
+                        if c not in team
+                    ]
+                    if available_contributors:
+                        # Oblicz wagi na podstawie rozkładu Gaussa
+                        sigma = 0.5
+                        weights = []
+
+                        for c in available_contributors:
+                            skill_level = c.skills.get(skill, 0)
+                            weight = math.exp(-((skill_level - required_level) ** 2) / (2 * sigma ** 2))
+                            # Premia dla idealnego poziomu
+                            if skill_level == required_level:
+                                weight *= weight_1
+                            elif skill_level > required_level:
+                                weight *= weight_2
+                            weights.append(weight)
+                        new_contributor = random.choices(available_contributors, weights=weights, k=1)[0]
+                        random_assignment.contributors[random_idx] = new_contributor
+                        team[random_idx] = new_contributor
         else:
             if len(neighbor) > 1:
                 idx1, idx2 = random.sample(range(len(neighbor)), 2)
