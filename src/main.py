@@ -1,23 +1,28 @@
-import os
+import matplotlib.pyplot as plt
 
 from solvers.greedy_solver import GreedySolver
+from solvers.evo_solver import EvoSolver
 from utils.parse_input_file import parse_input_file
 from utils.parse_output_file import parse_output_file
-from solvers.my_solver import NeighborSolver
+from utils.plotting import generate_plots
+from experiments.experiment import ExperimentRunner
+from experiments.experiment import Params
 
-print(os.getcwd())
-file_name = "d_dense_schedule"
+files = [
+    "a_an_example",
+    "b_better_start_small",
+    # "c_collaboration"  
+]
 
-contributors, projects = parse_input_file(f"/home/maksbaj/studia/sem5/pop/pop24z/data/{file_name}.in")
-# contributors, projects = parse_input_file("/home/adam/IdeaProjects/sem_5/pop24z/data/b_better_start_small.in")
+params = [
+    Params(ngen=100, population_size=100, selection_type="tournament"),
+    Params(ngen=100, population_size=100, selection_type="roulette"),
+    Params(ngen=100, population_size=100, selection_type="random"),
+    Params(ngen=100, population_size=100, selection_type="double_tournament"),
+]
 
-solver = GreedySolver(contributors, projects)
-solver.solve(1000)
-parse_output_file(solver.best_result, f"../out/{file_name}.out", contributors)
-# solver = NeighborSolver(contributors, projects)
-# solver.solve(1000, 0.99)
+runner = ExperimentRunner(params, files)
+results = runner.run()
+print(results)
 
-# biblioteka DEAP do ewolucyjnych
-solver = NeighborSolver(contributors, projects)
-solver.solve(1000, 0.99999)
-print(solver.best_result.score)
+generate_plots(results)

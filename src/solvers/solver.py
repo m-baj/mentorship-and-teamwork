@@ -1,17 +1,17 @@
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Dict
 from abc import ABC, abstractmethod
 
 from models.contributor import Contributor
 from models.project import Project
 from models.assignment import Assignment
+from models.result import Result
 
 
 @dataclass
 class Solver(ABC):
     contributors: List[Contributor]
     projects: List[Project]
-    # assigned_projects: List[AssignedProject] = field(default_factory=list)
 
     @abstractmethod
     def solve(self) -> None:

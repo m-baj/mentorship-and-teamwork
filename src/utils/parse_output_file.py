@@ -9,4 +9,4 @@ def parse_output_file(result: Result, file_name: str, contributors: List[Contrib
         for project in result.assignments:
             f.write(f"{project.name}\n")
             f.write(" ".join(contributor.name for contributor in contributors 
-            if contributor in project.assignments.values()) + "\n")
+            if contributor in [elem[1] for elem in project.assignments]) + "\n")
