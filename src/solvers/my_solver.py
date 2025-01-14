@@ -1,5 +1,4 @@
 import math
-from copy import deepcopy
 from dataclasses import dataclass, field
 from typing import List, Dict
 import random
@@ -7,13 +6,9 @@ import random
 from models.contributor import Contributor
 from models.project import Project
 from models.assignment import Assignment
-from models.skill import Skill
 from models.result import Result
 
 from solvers.solver import Solver
-from twisted.persisted.styles import upgraded
-
-from utils.parse_output_file import parse_second_output_file
 
 @dataclass
 class NeighborSolver(Solver):
@@ -67,7 +62,7 @@ class NeighborSolver(Solver):
 
         # mozna dopisac sprawdzanie czy mozna znalezc poprawne rozwiazanie po n iteracjach
         # mozna dodać tabu
-        while temperature > 1 and i_from_last_improvement < self.max_iterations: # 100000 to kilkanaście sekund
+        while temperature > 1 and i_from_last_improvement < self.max_iterations: # 100000 to kilkanaście sekund dla b_better_start_small
             iterations += 1
             for contributor in self.contributors:
                 if contributor.skill_upgrades:
@@ -91,7 +86,7 @@ class NeighborSolver(Solver):
                     tabu_list.pop(0)
 
                 if self.best_result.score > n:
-                    print(self.best_result.score)
+                    # print(self.best_result.score)
                     n = min(n + 10000000, self.best_result.score)
             i_from_last_improvement += 1
             temperature *= cooling_rate

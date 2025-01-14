@@ -1,0 +1,895 @@
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  280614  278581  302039  261535  ...  284837  285185  275966   284203.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  274834  284794  290014  306303  ...  290222  264108  302039   285386.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  299135  296983  302039  285413  ...  310676  280054  305847   295084.0
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  276804  274860  310676  291427  ...  306520  285858  302039   290856.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  764412  822989  758401  762810  ...  766599  731284  727177   764581.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  759428  709044  741091  782299  ...  756404  762483  794743   753391.1
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  759872  791584  779255  768998  ...  726465  719482  787143   766961.3
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  723652  753270  763978  712317  ...  757771  770274  710667   752354.7
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  287110  302295  259112  275300  ...  298139  297466  274573   288891.1
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  305847  257376  274573  278473  ...  287962  293658  250664   283477.3
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  310676  297922  259460  275244  ...  306520  293310  287023   286343.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  310676  252567  294331  284371  ...  263268  293310  288965   285702.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  751407  767014  765433  710353  ...  786432  755879  724215   743655.6
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  793758  793093  785161  785517  ...  738523  665681  739680   738417.4
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  680045  748244  706567  744892  ...  764469  696447  767355   726871.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  738706  760687  755592  726167  ...  760650  772891  730378   745064.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  289175  295435  287110  306520  ...  256112  290196  298463   288427.1
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  293175  285185  302039  280638  ...  257931  288602  288503   285175.5
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  284446  302147  271600  268425  ...  310676  280812  297666   288772.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  298139  297883  285926  295327  ...  310676  275710  310676   291353.7
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  780774  712627  663429  760136  ...  777337  805391  755976   749791.5
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  756375  763268  727290  728106  ...  770832  727574  739653   742088.0
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  735464  788237  757331  726079  ...  778823  749236  797684   754820.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  719526  754726  783866  720617  ...  676265  771047  798246   747408.4
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  285858  287023  272165  269186  ...  302295  297466  268425   282740.8
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  310676  303964  275679  306868  ...  277477  285105  306520   296763.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  306868  302295  306868  303964  ...  289666  285185  310676   289836.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  285670  293822  277236  293175  ...  289502  283862  291731   284512.5
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  796158  694041  691406  718760  ...  734941  753516  809621   737901.4
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  772510  745634  773031  740028  ...  744653  734558  752877   752529.1
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  792016  722782  694530  714447  ...  695545  748918  696238   727093.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=50, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  784383  685659  699735  808417  ...  706077  741417  778983   745928.5
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  305847  306303  295583  295583  ...  288937  292827  289666   290273.7
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  269744  288993  302147  278386  ...  271748  266468  283114   279771.3
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  260624  263144  293822  303964  ...  295583  283862  293822   284342.6
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  297883  266820  240277  293822  ...  297883  285253  302295   279739.8
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  800140  703400  747191  709748  ...  715102  722660  753627   738259.0
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  749463  694645  760111  786535  ...  749110  710414  686545   736884.0
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  761723  697515  774808  735544  ...  721205  750507  747358   741869.4
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  710204  806017  740677  729126  ...  745310  805276  782676   749477.6
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  293822  287506  289449  298139  ...  292827  274921  281211   288980.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  296560  274921  310676  265768  ...  276962  295435  305847   290222.8
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  310676  276133  273228  306868  ...  270605  310676  277453   290058.5
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  310676  278038  298487  310676  ...  310676  298339  275333   297361.6
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  743645  767301  762633  730149  ...  673191  742720  768807   742361.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  732325  707427  697479  753438  ...  735682  793532  725012   722402.4
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  727529  768721  787248  736880  ...  731564  811299  748119   748701.6
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.999, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  729057  711474  719481  767300  ...  715635  775851  754792   749535.7
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  276589  302039  281634  302295  ...  269261  306303  256959   287753.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  276456  278125  306303  288527  ...  288993  310676  272111   289365.5
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  280129  296983  267738  306868  ...  276806  278082  275145   288396.6
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  287110  285293  298463  310676  ...  273342  287781  287943   286551.1
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  720300  755470  763533  705677  ...  747659  783991  746714   744920.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  743115  757842  734979  726603  ...  765042  748145  743463   749763.7
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  748179  759420  766655  772076  ...  800524  724981  768582   762134.7
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.75
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  755940  781382  713764  746188  ...  692383  756714  798699   750083.4
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  273228  276456  297318  306868  ...  240750  303964  310676   289949.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  293822  261532  305847  285157  ...  299135  305847  284837   284369.4
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  265855  306520  272111  300156  ...  305847  302712  289666   290248.6
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=True, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  302712  305847  278058  298139  ...  290499  306520  289449   289025.2
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  776903  735799  777395  752259  ...  754871  744398  782161   763271.1
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=True, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  736321  738221  771301  698414  ...  750872  724028  784673   741919.9
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=100, weight_2=10
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  770667  757319  698677  715930  ...  759618  778551  744124   747890.8
+
+[1 rows x 11 columns]
+
+========================================
+Uruchamiam solver z parametrami:
+  temperature=100, cooling_rate=0.9995, change_probability=0.85
+  correct_start=False, shuffle=False, use_weighted_selection=True
+  weight_1=10, weight_2=3
+========================================
+
+
+=== Wyniki z 10 uruchomień (last_score) ===
+    run_1   run_2   run_3   run_4  ...   run_8   run_9  run_10  avg_score
+0  715679  718201  789958  760213  ...  740300  765519  693974   739305.7
+
+[1 rows x 11 columns]

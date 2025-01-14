@@ -1,9 +1,7 @@
 import os
 import pandas as pd
 
-from solvers.greedy_solver import GreedySolver
 from utils.parse_input_file import parse_input_file
-from utils.parse_output_file import parse_output_file
 from solvers.my_solver import NeighborSolver
 from utils.parse_output_file import parse_second_output_file
 from utils.plots import plot
@@ -22,7 +20,7 @@ def main():
     use_weighted_selections = [True, False]
     weights_pairs = [(100, 10), (10, 3)]
 
-    # contributors, projects = parse_input_file(input_path)
+
 
     param_combos = []
     for t in temperatures:
@@ -35,13 +33,14 @@ def main():
                                 for (w1, w2) in weights_pairs:
                                     param_combos.append((t, cr, cp, cs, s, wsel, w1, w2))
 
-    # biblioteka DEAP do ewolucyjnych
 
-    # solver.solve(temperature=100, cooling_rate=0.9995, change_probability=0.75, correct_start=False,
-    #              shuffle=True, use_weighted_selection=False, weight_1=100, weight_2=10)
-    # parse_second_output_file(solver.last_result, output_path)
+    contributors, projects = parse_input_file(input_path)
+    solver = NeighborSolver(contributors, projects)
+    solver.solve(temperature=100, cooling_rate=0.99, change_probability=0.85, correct_start=False,
+                 shuffle=True, use_weighted_selection=False, weight_1=100, weight_2=10)
+    parse_second_output_file(solver.last_result, output_path)
 
-    # solver = NeighborSolver(contributors, projects)
+
 
     for (temp, cool, ch_prob, c_start, do_shuffle, w_select, w1, w2) in param_combos:
         print("\n========================================")
