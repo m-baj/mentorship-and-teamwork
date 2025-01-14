@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional, Set, Tuple
+from typing import List, Optional, Tuple
 
-from models.skill import Skill
 from models.contributor import Contributor
 
 @dataclass

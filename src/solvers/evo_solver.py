@@ -1,12 +1,11 @@
 from deap import base, creator, tools, algorithms
 from dataclasses import dataclass, field
 from typing import List, Tuple, Dict
-import random
 from copy import deepcopy
+import random
 
 from models.project import Project
 from models.contributor import Contributor
-from models.skill import Skill
 from solvers.solver import Solver
 from models.result import Result
 

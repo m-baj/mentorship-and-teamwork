@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List, Dict
+from typing import List
 from abc import ABC, abstractmethod
 
 from models.contributor import Contributor

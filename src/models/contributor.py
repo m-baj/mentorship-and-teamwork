@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 from typing import List, Dict
 
-from models.skill import Skill
 
 @dataclass
 class Contributor:

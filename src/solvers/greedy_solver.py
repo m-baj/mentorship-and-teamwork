@@ -8,7 +8,6 @@ from models.result import Result
 from solvers.solver import Solver
 from models.contributor import Contributor
 from models.project import Project
-from models.skill import Skill
 
 @dataclass
 class GreedySolver(Solver):

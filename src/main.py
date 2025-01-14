@@ -10,15 +10,15 @@ from experiments.experiment import Params
 
 files = [
     "a_an_example",
-    "b_better_start_small",
+    # "b_better_start_small",
     # "c_collaboration"  
 ]
 
 params = [
-    Params(ngen=100, population_size=100, selection_type="tournament"),
-    Params(ngen=100, population_size=100, selection_type="roulette"),
-    Params(ngen=100, population_size=100, selection_type="random"),
-    Params(ngen=100, population_size=100, selection_type="double_tournament"),
+    # Params(ngen=10, population_size=10, selection_type="tournament"),
+    Params(ngen=10, population_size=10, selection_type="roulette"),
+    Params(ngen=10, population_size=10, selection_type="random"),
+    # Params(ngen=100, population_size=100, selection_type="double_tournament"),
 ]
 
 runner = ExperimentRunner(params, files)

@@ -2,7 +2,6 @@ from typing import TextIO, Tuple, List
 
 from models.contributor import Contributor
 from models.project import Project
-from models.skill import Skill
 
 def parse_input_file(file_path: str) -> Tuple[List[Contributor], List[Project]]:
     with open(file_path, 'r') as f:
