@@ -9,6 +9,10 @@ def main():
 
     input_path = "../data/b_better_start_small.in"
     output_path = "../out/b_better_start_small.out"
+    input_path_c = "../data/c_collaboration.in"
+    output_path_c = "../out/c_collaboration.out"
+    input_path_a = "../data/a_an_example.in"
+    output_path_a = "../out/a_an_example.out"
 
     temperatures = [50, 100]
     cooling_rates = [0.999, 0.9995]
@@ -20,23 +24,32 @@ def main():
 
 
 
-    param_combos = []
-    for t in temperatures:
-        for cr in cooling_rates:
-            for cp in change_probabilities:
-                for cs in correct_starts:
-                    for s in shuffles:
-                        for wsel in use_weighted_selections:
-                            if wsel:
-                                for (w1, w2) in weights_pairs:
-                                    param_combos.append((t, cr, cp, cs, s, wsel, w1, w2))
+    # param_combos = []
+    # for t in temperatures:
+    #     for cr in cooling_rates:
+    #         for cp in change_probabilities:
+    #             for cs in correct_starts:
+    #                 for s in shuffles:
+    #                     for wsel in use_weighted_selections:
+    #                         if wsel:
+    #                             for (w1, w2) in weights_pairs:
+    #                                 param_combos.append((t, cr, cp, cs, s, wsel, w1, w2))
 
 
-    contributors, projects = parse_input_file("../data/c_collaboration.in")
+    # contributors, projects = parse_input_file(input_path)
+    # solver = NeighborSolver(contributors, projects)
+    # solver.solve(temperature=50, cooling_rate=0.99, change_probability=0.75, correct_start=False,
+    #              shuffle=False, use_weighted_selection=False, weight_1=100, weight_2=10)
+    # parse_second_output_file(solver.last_result, output_path)
+    # print(solver.last_result.score)
+    # df = pd.DataFrame(solver.history)
+    # plot(df)
+
+    contributors, projects = parse_input_file(input_path)
     solver = NeighborSolver(contributors, projects)
-    solver.solve(temperature=50, cooling_rate=0.999, change_probability=0.75, correct_start=False,
-                 shuffle=False, use_weighted_selection=True, weight_1=100, weight_2=10)
-    parse_second_output_file(solver.last_result, "../out/c_collaboration.out")
+    solver.solve(temperature=50, cooling_rate=0.999, change_probability=0.85, correct_start=False,
+                 shuffle=False, use_weighted_selection=False, weight_1=100, weight_2=10)
+    parse_second_output_file(solver.last_result, output_path)
     print(solver.last_result.score)
     df = pd.DataFrame(solver.history)
     plot(df)

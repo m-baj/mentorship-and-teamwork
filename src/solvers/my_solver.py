@@ -92,9 +92,15 @@ class NeighborSolver(Solver):
                     # print(self.best_result.score)
                     self.n_for_prints = min(self.n_for_prints + self.step_n_for_prints,
                                             self.best_result.score)
+                for contributor in self.contributors:
+                    if contributor.skill_upgrades:
+                        for skill, level in contributor.skill_upgrades.items():
+                            contributor.skills[skill] = contributor.skill_upgrades[skill]
+                        contributor.skill_upgrades = {}
+                self.last_evaluation()
             i_from_last_improvement += 1
             temperature *= cooling_rate
-            self.last_evaluation()
+
 
             self.history.append({
                 'iteration': iterations,
