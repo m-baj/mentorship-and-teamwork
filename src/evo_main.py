@@ -24,4 +24,4 @@ params = [
 runner = ExperimentRunner(params, files)
 results = runner.run()
 
-generate_plots(results)
+# generate_plots(results)

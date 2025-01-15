@@ -57,7 +57,7 @@ class ExperimentRunner:
                 experiment = Experiment(contributors, projects, params)
                 result = experiment.run()
                 results[file_name].append(result)
-                self._parse_output_file(result.best_result, f"{file_name}_{idx}", contributors)
+                self._parse_output_file(result.best_result, f"{file_name}_{params}", contributors)
         return results
     
     def _parse_input_file(self, file_name: str) -> Tuple[List[Contributor], List[Project]]:
