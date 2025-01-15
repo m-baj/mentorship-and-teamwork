@@ -7,12 +7,12 @@ from utils.plots import plot
 
 def main():
 
-    input_path = "../data/b_better_start_small.in"
-    output_path = "../out/b_better_start_small.out"
-    input_path_c = "../data/c_collaboration.in"
-    output_path_c = "../out/c_collaboration.out"
-    input_path_a = "../data/a_an_example.in"
-    output_path_a = "../out/a_an_example.out"
+    input_path = "data/b_better_start_small.in"
+    output_path = "out/b_better_start_small.out"
+    input_path_c = "data/c_collaboration.in"
+    output_path_c = "out/c_collaboration.out"
+    input_path_a = "data/a_an_example.in"
+    output_path_a = "out/a_an_example.out"
 
     temperatures = [50, 100]
     cooling_rates = [0.999, 0.9995]
