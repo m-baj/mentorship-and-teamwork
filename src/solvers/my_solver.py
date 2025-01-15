@@ -19,18 +19,21 @@ class NeighborSolver(Solver):
     last_result: Result = field(default_factory=Result)
     skill_to_contributors: Dict[str, List[Contributor]] = field(default_factory=dict)
     max_iterations: int = 100000
+    tabu_max_size: int = 300
+    weight_for_probability_to_change_worse_level: int = 10      # 10 oznacza 10 razy większe prawdopodobieństwo
+    n_for_prints: int = -180000000
+    step_n_for_prints: int = 10000000
+    single_penalty: int = 10000000
 
     history: List[Dict[str, float]] = field(default_factory=list)
 
     def solve(self, temperature: int, cooling_rate: float, change_probability: float,
               correct_start: bool = True, shuffle: bool = False,
               use_weighted_selection: bool = True, weight_1: float = 10000, weight_2: float = 100) -> Result:
-        n = -180000000 # tylko do printów
 
         tabu_list = []
-        tabu_max_size = 300
 
-        # sprawdzic z sortowaniem i z losowym
+        # Sprawdzić z sortowaniem i z losowym
         if shuffle:
             random.shuffle(self.projects)
         else:
@@ -60,8 +63,8 @@ class NeighborSolver(Solver):
         })
 
 
-        # mozna dopisac sprawdzanie czy mozna znalezc poprawne rozwiazanie po n iteracjach
-        # mozna dodać tabu
+        # Spróbować dopisać sprawdzanie, czy program nie utknął na n iteracji w tym samym rozwiązaniu
+        # Spróbować dodać tabu
         while temperature > 1 and i_from_last_improvement < self.max_iterations: # 100000 to kilkanaście sekund dla b_better_start_small
             iterations += 1
             for contributor in self.contributors:
@@ -82,12 +85,13 @@ class NeighborSolver(Solver):
                 self.best_result = Result(score=neighbor_score, assignments=neighbor_assignments)
                 i_from_last_improvement = 0
                 tabu_list.append(neighbor_hash)
-                if len(tabu_list) > tabu_max_size:
+                if len(tabu_list) > self.tabu_max_size:
                     tabu_list.pop(0)
 
-                if self.best_result.score > n:
+                if self.best_result.score > self.n_for_prints:
                     # print(self.best_result.score)
-                    n = min(n + 10000000, self.best_result.score)
+                    self.n_for_prints = min(self.n_for_prints + self.step_n_for_prints,
+                                            self.best_result.score)
             i_from_last_improvement += 1
             temperature *= cooling_rate
             self.last_evaluation()
@@ -110,7 +114,7 @@ class NeighborSolver(Solver):
                 skill_map[skill].append(contributor)
         return skill_map
 
-    # wystartowac ze stanu ktory bedzie poprawny
+    # Spróbować wystartowac ze stanu, który będzie poprawny
     def _assign_project(self, project: Project, correct_start: bool, use_weighted_selection: bool
                         , weight_1: float, weight_2: float) -> Assignment:
         assigned_contributors = []
@@ -126,8 +130,8 @@ class NeighborSolver(Solver):
                 return None
 
             if use_weighted_selection:
-                # Oblicz wagi na podstawie rozkładu Gaussa
-                sigma = 0.5  # Mniejsze sigma dla węższego rozkładu
+                # Obliczanie wag na podstawie rozkładu Gaussa
+                sigma = 0.5
                 weights = []
 
                 for c in suitable_contributors:
@@ -140,7 +144,7 @@ class NeighborSolver(Solver):
                         weight *= weight_2
                     weights.append(weight)
 
-                # Wybierz nowego pracownika z odpowiednimi wagami
+                # Wybór nowego pracownika z odpowiednimi wagami
                 chosen_contributor = random.choices(suitable_contributors, weights=weights, k=1)[0]
             else:
                 # Losowy wybór pracownika bez wag
@@ -162,7 +166,7 @@ class NeighborSolver(Solver):
             penalty = 0
             for index, (skill, level) in enumerate(project.required_skills):
                 if assignment.contributors[index].skills[skill] < level:
-                    penalty += 10000000 + max(0, (project.score -
+                    penalty += self.single_penalty + max(0, (project.score -
                             max(0, end_data - project.best_before)))
                 self.upgrade_skills(assignment, index, skill, level)
             score = max(0, (project.score -
@@ -188,7 +192,7 @@ class NeighborSolver(Solver):
                 required_level = random_assignment.project.required_skills[random_idx][1]
                 current_level = c.skills.get(skill, 0)
                 if current_level < required_level:
-                    weight = 10
+                    weight = self.weight_for_probability_to_change_worse_level
                 else:
                     weight = 1
                 weights.append(weight)
@@ -213,6 +217,7 @@ class NeighborSolver(Solver):
                     mentee = random.choice(mentee_candidates)
                     team[random_idx] = mentee
                     random_assignment.contributors[random_idx] = mentee
+                    # Sprawdzanie czy mentoring się wykonuje
                     # print("Mentoring")
                 else:
                     available_contributors = [
@@ -220,7 +225,7 @@ class NeighborSolver(Solver):
                         if c not in team
                     ]
                     if available_contributors:
-                        # Oblicz wagi na podstawie rozkładu Gaussa
+                        # Wagi na podstawie rozkładu Gaussa
                         sigma = 0.5
                         weights = []
 
@@ -277,7 +282,7 @@ class NeighborSolver(Solver):
             penalty = 0
             for index, (skill, level) in enumerate(project.required_skills):
                 if assignment.contributors[index].skills[skill] < level:
-                    penalty += 10000000 + max(0, (project.score -
+                    penalty += self.single_penalty + max(0, (project.score -
                             max(0, end_data - project.best_before)))
                 self.upgrade_skills(assignment, index, skill, level)
             score = max(0, (project.score -
