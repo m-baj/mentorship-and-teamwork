@@ -1,6 +1,9 @@
-from models.result import Result
+from typing import List
 
-def parse_second_output_file(result: Result, file_name: str) -> None:
+from models.result import Result
+from models.contributor import Contributor
+
+def parse_output_file(result: Result, file_name: str, contributors: List[Contributor]) -> None:
     with open(file_name, "w") as f:
         f.write(f"{len(result.assignments)}\n")
         for project in result.assignments:
