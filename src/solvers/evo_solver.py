@@ -21,7 +21,6 @@ selection_types = {
     "double_tournament": (tools.selDoubleTournament, {"fitness_size" :3, "parsimony_size": 2, "fitness_first": True}),
 }
 
-
 @dataclass
 class Individual:
     projects: List[Project] = field(default_factory=list)
@@ -52,6 +51,7 @@ class EvoSolver(Solver):
             raise ValueError(f"Invalid selection type: {self.selection_type}")
         selection_func, selection_params = selection_types[self.selection_type]
         self.toolbox.register("select", selection_func, **selection_params)
+        print(sum([project.score for project in self.projects]))
         
     def solve(self, ngen: int) -> Tuple[List[int], List[int]]:
         population = self.toolbox.population(n=self.population_size)
@@ -94,7 +94,6 @@ class EvoSolver(Solver):
         individual_cpy = deepcopy(individual)
         penalty = 0
         bonus = 0
-        valid_number = 0
         for project_cpy, project in zip(individual_cpy.projects, individual.projects):
             project_cpy.assignments, project.assignments = [], []
             team = set()    
@@ -104,13 +103,12 @@ class EvoSolver(Solver):
                 bonus += bonus_incr
                 
                 if contributors:
-                    contributor = min(contributors, key=lambda c: c.busy_until)
+                    contributor = random.choice(contributors)
                     project_cpy.assignments.append(((skill_name, skill_level), contributor))
                     project.assignments.append(deepcopy(((skill_name, skill_level), contributor)))
                     team.add(contributor)
                     
             if project_cpy.is_valid():
-                valid_number += 1
                 project_cpy.evaluation_data.begins = max([c.busy_until for _, c in project_cpy.assignments])
                 project_cpy.evaluation_data.ends = project_cpy.evaluation_data.begins + project_cpy.duration
                 project_cpy.evaluation_data.score = max(
@@ -124,7 +122,7 @@ class EvoSolver(Solver):
                         bonus += LEVEL_UP_BONUS
 
             else:
-                penalty += IVALID_PROJECT_PENALTY
+                penalty += IVALID_PROJECT_PENALTY   
         score = sum([project.evaluation_data.score for project in individual_cpy.projects])    
         individual.score = score    
 
@@ -148,8 +146,9 @@ class EvoSolver(Solver):
             if contributor.has_required_skill_one_level_lower(skill_name, skill_level) and any(
                 c.can_mentor(skill_name, skill_level) for c in team
             ):
-                contributors.append(contributor)
                 bonus += MENTORING_BONUS
+                return [contributor], bonus
+                
             elif contributor.has_required_skill(skill_name, skill_level):
                 contributors.append(contributor)
 

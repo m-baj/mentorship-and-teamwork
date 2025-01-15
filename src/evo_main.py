@@ -9,20 +9,19 @@ from experiments.experiment import ExperimentRunner
 from experiments.experiment import Params
 
 files = [
-    "a_an_example",
-    # "b_better_start_small",
+    # "a_an_example",
+    "b_better_start_small",
     # "c_collaboration"  
 ]
 
 params = [
-    # Params(ngen=10, population_size=10, selection_type="tournament"),
-    Params(ngen=10, population_size=10, selection_type="roulette"),
-    Params(ngen=10, population_size=10, selection_type="random"),
+    Params(ngen=100, population_size=50, selection_type="tournament"),
+    Params(ngen=100, population_size=50, selection_type="roulette"),
+    # Params(ngen=10, population_size=10, selection_type="random"),
     # Params(ngen=100, population_size=100, selection_type="double_tournament"),
 ]
 
 runner = ExperimentRunner(params, files)
 results = runner.run()
-print(results)
 
-generate_plots(results)
+# generate_plots(results)

@@ -37,6 +37,8 @@ class Experiment:
             selection_type=self.params.selection_type
         )
         best, avgs = solver.solve(self.params.ngen)
+        print(f"Number of completed projects: {len(solver.best_result.assignments)}")
+        print(f"Score: {solver.best_result.score}")
         return ExperimentResult(self.params, solver.best_result.score, best, avgs, solver.best_result)
     
 
@@ -48,7 +50,7 @@ class ExperimentRunner:
     def run(self) -> Dict[str, List[ExperimentResult]]:
         results = {}
         for file_name in self.files:
-            print(f"Running experiment for file: {file_name}")
+            print(f"Running experiments for file: {file_name}")
             contributors, projects = self._parse_input_file(file_name)
             results[file_name] = []
             for idx, params in enumerate(self.params):

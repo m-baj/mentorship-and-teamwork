@@ -35,4 +35,3 @@ def parse_skills(file_handle: TextIO, skills_count: int) -> List[Tuple[str, int]
         skill_name, level = file_handle.readline().split()
         skills.append((skill_name, int(level)))
     return skills
-    
