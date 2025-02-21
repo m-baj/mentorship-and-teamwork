@@ -1,1 +1,1 @@
-# POP24Z - Mentorship and Teamwork
+# Google Hash Code 2022 - Mentorship and Teamwork
